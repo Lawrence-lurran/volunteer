@@ -53,7 +53,7 @@ $(document).ready(function () {
         $.ajax({
             url: "userServlet",
             type: "post",
-            data: "action=register&"+serializedData,
+            data: "action=register"+serializedData,
             success: function (data) {
 
             },

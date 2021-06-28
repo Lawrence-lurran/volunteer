@@ -10,10 +10,30 @@ import com.lurran.pojos.User;
  */
 public interface UserDao {
     /**
-     * 保存用户信息
-     * @param user 用户对象
+     * 根据用户名查询用户信息
+     * @param username  用户名
+     * @return 如果返回null，说明没有这个用户，反之亦然
      */
-    void saveUser(User user);
+    public User queryUserByUsername(String username);
 
-    
+    /**
+     * 保存用户信息
+     * @param user 要保存的user对象
+     * @return 如果返回-1说明执行失败，其他表示影响的行数
+     */
+    public int saveUser(User user);
+    /**
+     * 根据用户名和密码查询用户信息
+     * @param username  用户名
+     * @param password  密码
+     * @return 如果返回null，说明没有这个用户，反之亦然
+     */
+    public User queryUserByUsernameAndPassword(String username,String password);
+
+    /**
+     * 通过ID更新图书
+     * @param user
+     * @return
+     */
+    int updateUser(User user);
 }

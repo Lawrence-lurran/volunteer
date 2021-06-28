@@ -21,7 +21,7 @@ public class ManagerFilter implements Filter {
         HttpServletRequest httpServletRequest=(HttpServletRequest) request;
         Object user = httpServletRequest.getSession().getAttribute("user");
         if (user == null) {
-            httpServletRequest.getRequestDispatcher("/pages/user/login.jsp").forward(request,response);
+            httpServletRequest.getRequestDispatcher("login.html").forward(request,response);
 
         }else {
             chain.doFilter(request,response);
