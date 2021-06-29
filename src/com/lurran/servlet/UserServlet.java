@@ -48,7 +48,6 @@ public class UserServlet extends BaseServlet{
             Gson gson=new Gson();
             String s = gson.toJson(map);
             response.getWriter().write(s);
-            request.getRequestDispatcher("/register.html").forward(request,response);
         }else {
             userService.registUser(user);
             System.out.println("用户名可用");

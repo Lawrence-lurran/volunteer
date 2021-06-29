@@ -91,7 +91,25 @@ $(function(){
             data: "action=submit&"+serializedData,
             dataType:"json",
             success: function (data) {
+                var result = JSON.parse(data);
+                if (result.status != CORRECT) {
+                    // 显示错误信息
+                    $("#cu-submit-fb").attr("class", "cu-error-fb").html(
+                        "<span class='glyphicon glyphicon-remove'></span>&nbsp;" +
+                        "error code: " + result.status + "&nbsp;&nbsp;" + errorcode2errorinfo(result.status)
+                    ).show();
+                } else {
+                    $("#cu-submit-fb").attr("class", "cu-success-fb").html(
+                        "<span class='glyphicon glyphicon-ok'></span>&nbsp;报名成功..."
+                    ).show();
+                    setTimeout(function () {
+                        location.href = "/theACP/user.html";
+                    }, 1200);
+                }
 
+                setTimeout(function () {
+                    $("#cu-submit-fb").fadeOut(800);
+                }, 2000);
             },
         });
     });
